@@ -1,0 +1,70 @@
+<h2 class="bg-warning text-center">Pipes</h2>
+
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-sm-6 offset-sm-3">
+        <input class="form-control input-sm" id="inputsm" type="text" placeholder="Search by Team Name" [(ngModel)]="searchbyvalue">   
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table">
+        <thead>
+          <tr class="">
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Team</th>
+            <th>HighestRunScorer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of playersArray |filterPlayers : searchbyvalue; index as i">
+            <td>{{i+1}}</td>
+            <td>{{player.name}}</td>
+            <td>{{player.team}}</td>
+            <td>{{player.highestRunScorer}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let file of filesarray">
+        <div class="card">
+          <div class="card-header">
+         <h2>{{file.name}}</h2>  
+          </div>
+          <div class="card-body">
+            
+            {{file.size | filesize}}
+          </div>
+          <div class="card-footer">
+          
+            
+          </div>
+        </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-12 ">
+       <p>
+        {{title | summary : 100}}
+       </p>
+         
+       <p class="alert alert-info">
+         {{title | summary}}
+        </p>
+       
+        <p>
+       
+         {{title | summary : 200}}
+        </p>  
+    </div>
+  </div>
+</div>
+
+
+
